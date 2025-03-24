@@ -4,13 +4,13 @@ const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 const cors = require("cors")
 const userRoute = require("./routes/userRoute")
+
+app.use(cors())
 require("dotenv").config()
 const Port = process.env.PORT
-
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended : true}))
-app.use(cors())
+
 
 mongoose.connect(process.env.DB_CONNECT).then(()=>{
     console.log("DB Connected")
